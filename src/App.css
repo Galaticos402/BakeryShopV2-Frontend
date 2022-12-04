@@ -1,0 +1,15 @@
+.gray-text{
+    color: rgb(161, 159, 159);
+}
+.green-text{
+    color: green;
+}
+.flex{
+    display: flex;
+}
+.bold{
+    font-weight: bold;
+}
+.pointer{
+    cursor: pointer;
+}
