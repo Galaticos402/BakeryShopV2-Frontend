@@ -8,9 +8,9 @@ const _getConfig = (config?: AxiosRequestConfig) => {
         ...config,
         headers:{
             ...config?.headers,
-            // Authorization: `Bearer ${
-            //     sessionStorage.getItem(TOKEN) || localStorage.getItem(TOKEN)
-            // }`
+            Authorization: `Bearer ${
+                sessionStorage.getItem(TOKEN) || localStorage.getItem(TOKEN)
+            }`
         }
     }
 }

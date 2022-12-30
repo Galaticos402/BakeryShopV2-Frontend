@@ -17,7 +17,7 @@ const MenuDetail: React.FC<IProps> = ({}) => {
     const categories = useSelector(state => state.category)
     const [selectedCategory, setSelectedCategory] = useState<Category>({
         imageName: "",
-        backgroundImage: "",
+        thumbnailImage: "",
         categoryName: ""
     })
 
@@ -38,7 +38,7 @@ const MenuDetail: React.FC<IProps> = ({}) => {
         <div className="container-fluid">
             <div className="introduction-menu">
                 <div className="image-container-menu">
-                    <img src={selectedCategory.backgroundImage != undefined ? selectedCategory.backgroundImage : ""}/>
+                    <img src={selectedCategory.thumbnailImage != undefined ? selectedCategory.thumbnailImage : ""}/>
                 </div>
                 <div className="introduction-text-menu detail">
                     <h1 className="introduction-text-menu-h1 detail-h1">{selectedCategory.categoryName != undefined ? categories.selectedCategory.categoryName : ""}</h1>

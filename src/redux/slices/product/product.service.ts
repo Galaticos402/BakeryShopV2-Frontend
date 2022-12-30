@@ -7,5 +7,5 @@ export const getAllProduct = async () : Promise<AxiosResponse<ProductResponse>> 
     return await httpClient.get(`${productPath.getAll}`)
 } 
 export const getProducts = async (categoryID: string) : Promise<AxiosResponse<ProductResponse>> => {
-    return await httpClient.get(`${productPath.getByCateID}?categoryID=${categoryID}`)
+    return await httpClient.get(`${productPath.getByCateID}?id=${categoryID}`)
 } 

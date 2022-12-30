@@ -1,7 +1,7 @@
 export interface Category{
     categoryId?: string,
     categoryName: string,
-    backgroundImage: string
+    thumbnailImage: string
     imageName: string
 }
 

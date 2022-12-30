@@ -14,7 +14,7 @@ const initialState : CategoryState = {
     selectedCategory: {
         categoryName: "",
         imageName: "",
-        backgroundImage: ""
+        thumbnailImage: ""
     }
 }
 

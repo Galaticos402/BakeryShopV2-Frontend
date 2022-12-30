@@ -4,5 +4,5 @@ const identifiers = "product"
 
 export const productPath = {
     getAll: `${basePath}/${identifiers}/getall`,
-    getByCateID: `${basePath}/${identifiers}/getbycateID`
+    getByCateID: `${basePath}/${identifiers}/getbycategory`
 }

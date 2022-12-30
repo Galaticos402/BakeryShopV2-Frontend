@@ -1,1 +1,1 @@
-export const basePath = "http://localhost:44258/api"
+export const basePath = "http://localhost:29979/api"

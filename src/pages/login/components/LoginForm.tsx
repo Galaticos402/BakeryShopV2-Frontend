@@ -1,8 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import useAuth from "../../../hook/use-auth";
+import * as yup from 'yup'
+import { useForm } from "react-hook-form";
+import { yupResolver } from '@hookform/resolvers/yup';
+import { UserLoginModel } from "../../../redux/slices/user/user.model";
 interface IProps {
 
 }
+const schema = yup.object().shape({
+    username: yup.string().required("Username cannot be blank"),
+    password: yup.string().required("Password cannot be blank")
+})
 const LoginForm: React.FC<IProps> = () => {
+    const auth = useAuth();
+    const navigate = useNavigate();
+    const loginHandler = async () => {
+        const isValidLogin = await auth.login(getValues('username'), getValues('password'));
+        debugger
+        if(isValidLogin){
+            navigate("/home")
+        }
+    }
+    const {
+        register,
+        handleSubmit,
+        reset,
+        getValues,
+        setError,
+        setValue,
+        formState: { errors }
+    } = useForm<UserLoginModel>({
+        resolver: yupResolver(schema)
+    })
+
     return (
         <div className="container pt-5">
             <div className="border">
@@ -10,18 +41,18 @@ const LoginForm: React.FC<IProps> = () => {
                     <h3 className="text-center green-text">Login</h3>
                     <div className="pb-2">
                         <label className="bold green-text">Email</label>
-                        <input className="form-control" type="text" />
+                        <input className="form-control" type="text" {...register('username')} />
                     </div>
                     <div className="pb-2">
                         <label className="bold green-text">Password</label>
-                        <input className="form-control" type="password" />
+                        <input className="form-control" type="password" {...register('password')} />
                     </div>
                     <div className="py-1">
                         <input className="form-check-input" type="checkbox"/>
                         <span className="gray-text ps-1 font-light">Remember password</span>
                     </div>
                     <div className="d-grid gap-2 mt-1">
-                        <button type="button" className="btn btn-success"><b>Login</b></button>
+                        <a type="button" className="btn btn-success" onClick={() => loginHandler()}><b>Login</b></a>
                     </div>
                     <div className="font-weight-light text-center gray-text">Do not have account ? Register <a href="#">here</a></div>
                     <div className="ps-2">
